@@ -1,0 +1,55 @@
+.reveal .slide-logo {
+  height: 100px !important;
+  width: 100px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+.v-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.reveal .slide-logo {
+  height: unset !important;
+  width: unset !important;
+  max-width: 100px !important;
+  max-height: 100px !important;
+}
+
+.title {
+        font-size: 4.5em;
+        color: #b22222;
+      }
+
+/* Style for custom .question callout */
+.callout.question {
+  border-left: 4px solid #3b82f6; /* blue-500 */
+  background-color: #eff6ff;      /* blue-100 */
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 0.375rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.callout.question::before {
+  content: "❓";
+  font-size: 1.5em;
+  margin-right: 0.75em;
+  line-height: 1;
+  margin-top: 0.1em;
+}
+
+/* Optional: style the title */
+.callout.question .callout-title {
+  font-weight: bold;
+  color: #1d4ed8; /* blue-700 */
+}
+
+.reveal .slide-logo {
+  top: 0;
+  left: 12px
+}

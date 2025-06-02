@@ -1,0 +1,398 @@
+---
+title: "Forensische Einblicke bei Sexualstraftätern"
+subtitle: Epidemiologie, Phänomenologie, Ätiologie und Intervention
+author:   
+  - Jan Luca Schnatz
+  - Annika von Palubitzki
+date: today
+date-format: "DD.MM.YY"
+lang: de
+format:
+  revealjs: 
+    slide-number: true
+    self-contained: true
+    transition: slide
+    csl: apa.csl
+    fig-cap-location: margin
+    cap-location: margin
+    preview-links: true
+    embed-resources: true
+    logo: img/goethe-logo-black.png
+    css: styles.css
+    footer: "KliPPs7b"
+    fig-align: center
+    theme: [default, theme.scss]
+    smaller: false
+    title-slide-style: pandoc
+    title-slide-attributes:
+        data-background-image: img/goethe-bg.png
+bibliography: references.bib
+filters:
+  - reveal-header
+  - timer
+---
+
+```{r}
+#| echo: false
+if(!"pacman" %in% installed.packages()) install.packages("pacmna")
+pacman::p_load(gt, gtExtras, countdown)
+```
+
+# Übersicht
+
+## Gliederung
+
+1. Fallbeispiel
+2. Schuldfähigkeit 
+3. Epidemiologie: Prävalenz & Rückfallrisiko
+4. Phänomenologie & Typologien
+5. Therapieansätze
+6. Wirksamkeit der Therapie
+7. Diskussion & Abschluss
+
+# Fallbeispiel
+
+## Fallbeispiel: Markus W.
+
+*QR-Code: Ausführliche Fallbeschreibung*
+
+![](img/qr-code.jpeg){fig-align="center"}
+
+# Rechtspsychologische Einordnung des Falls
+
+*Nach welchen Kriterien wird Schuldfähigkeit beurteilt?*
+
+## Schuldfähigkeit – Arbeitsauftrag {.smaller}
+
+::: {.callout .question}
+## Aufgabestellung
+Beurteilt in Kleingruppen die Schuldfähigkeit von Markus W. im Fallbeispiel.
+:::
+
+**Orientierung** [@boetticher2007]
+
+Gesetzesparagraphen:
+
+- **§20 StGB: Schuldunfähigkeit**: Ohne Schuld handelt, wer bei Begehung der Tat wegen *krankhafter seelischer Störung*, *tiefgreifender Bewusstseinsstörung*, *Intelligenzminderung*, *schwerer anderer seelischer Störung* unfähig ist, das Unrecht der Tat einzusehen oder nach dieser Einsicht zu handeln.
+- **§21 StGB: Verminderte Schuldfähigkeit**: Ist die Fähigkeit zur Einsicht oder Steuerung erheblich vermindert, kann die Strafe gemildert werden.
+
+Zentrale psychologische Begriffe:
+
+- **Einsichtsfähigkeit**: Fähigkeit, das Unrecht der Tat zu erkennen 
+(Kognitive Komponente der Tat: Realitätsbezug, Verständnis und Wissen gesellschaftlicher Normen, Wissen um Handlungsalternativen und deren Realisierungswahrscheinlichkeiten)
+- **Steuerungsfähigkeit**: Fähigkeit, nach dieser Einsicht zu handeln (Motivationale und handlungsbezogene Komponente der Tat: Passung zw. Intention und realisierter Handlungsalternativen, Handlungsorganisation, Tatmotiv, Nachtatverhalten)
+
+## Schuldfähigkeit – Besprechung
+
+**Musterlösung:**
+
+- ⁠Tiefgreifende komplexe posttraumatische Belastungsstörung (PTBS) mit dissoziativen Episoden (schwere andere seelische Störung)
+- ⁠Deutlich ausgeprägte selbstunsichere und emotional instabile Persönlichkeitsstruktur
+- ⁠Gestörte Affekt- und Impulskontrolle, besonders in Situationen emotionaler Nähe (mögliche Affekttat nach tiefgreifender Bewusstseinsstörung)
+- ⁠Sexualpräferenzstörung ist nicht eindeutig diagnostizierbar - Verhalten eher „regressiv-emotional motiviert“
+
+# Vom Einzellfall zum Gesamtbild
+
+*Wie häufig treten Sexualdelikte tatsächlich auf – und wie hoch ist das Rückfallrisiko?*
+
+## Prävalenz Sexualdelinquenz
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+- Daten aus der Polizeilichen Kriminalstatistik von 2015 - 2024 [@pks]
+- Oberbegriff: *Straftaten gegen die sexuelle Selbstbestimmung*
+
+:::
+
+::: {.column width="55%"}
+
+![](img/prevalence_deliquence.png){width="80%"}
+
+:::
+
+::::
+
+## Aktuellen Daten nach Deliktart
+
+@pks2024
+
+```{r}
+#| echo: false
+d <- read.csv("data/deliquence_2024.csv")
+gt::gt(d) |>
+  gt::tab_header(
+    title = "Sexualdeliquenz in Deutschland 2024",
+    subtitle = "Polizeiliche Kriminalstatistik (PKS)"
+  ) |>
+  gt::cols_label(
+    name = "Delikt",
+    n_total = "Anzahl erfasste Fälle",
+    pct_men = "Anteil männlicher Täter (%)",
+    pct_solved = "Aufklärungsquote (%)"
+  ) |>
+  # theme
+  gtExtras::gt_theme_nytimes()
+```
+
+## Rückfallrisiko von Sexualstraftätern?
+
+@jehle2020
+
+::: {.callout .question}
+## Rückfallrisiko bei Sexualstraftätern
+* *Wie hoch schätzt ihr das Rückfallrisiko bei Sexualstraftätern?*
+* *Gibt es Unterschiede je nach Tätertyp (z. B. pädosexuelle Täter vs. Taten gegen Erwachsene)?*
+* Rückfallrisiko für denselben Straftatbestand (12 Jahre Zeitraum)
+  * Körperverletzung: 24.6% 
+  * Einfacher Diebstahl: 22.4% 
+  * Raub und Erpressung: 12.4% 
+:::
+
+## Tatsächliches Rückfallrisiko von Sexualstraftätern
+
+```{r}
+#| echo: false
+risk <- read.csv("data/relapse_risk.csv")
+gt::gt(risk) |>
+  gt::tab_header(
+    title = "Rückfallrisiko nach Deliktart"
+  ) |>
+  gt::tab_options(
+    table.font.size = 20,
+    table.width = gt::pct(80)
+  ) |>
+  gtExtras::gt_theme_nytimes()
+
+```
+
+**Tätertyp-spezifische Unterschiede:** [@rettenberger2023]  
+
+- **Pädosexuelle Täter:** Höheres Risiko für erneute Sexualdelikte  
+- **Täter mit erwachsenen Opfern:** Mehr Rückfälle bei anderen Delikten
+
+## Erklärungsansätze für vergleichsweise "niedrige" Rückfallraten
+
+@rettenberger2023
+
+- Gesellschaftlicher Wandel (Bildung, Gesundheit)
+- Bessere Nachsorge \& Behandlung
+- Individuelle Faktoren (Selbstkontrolle, Alter)
+- Kriminalpolitik (Abschreckung)
+- Technologischer Wandel 
+
+# Von der Epidemiologie zu Erscheinungsformen und Tätertypen
+
+**Phänomenologie & Typologien**
+
+*Welche Formen sexualisierter Gewalt gibt es und wie lassen sich Täter typisieren?*
+
+
+## Typologien sexualisierter Gewalt {.smaller}
+
+@rettenberger2023
+
+- Sexualisierte Gewalt zeigt sich in unterschiedlichen Erscheinungsformen.
+- Typologien helfen, Täter und Taten systematisch zu erfassen und besser zu verstehen.
+
+![](img/typologie_sexualdeliquenz.png){width="80%"}
+
+# Von der Typologie zur Therapie
+
+**Wie werden Sexualstraftäter behandelt?**
+
+## Übung: Fallbezogene Überlegungen zu Therapiemöglichkeiten
+
+::: {.callout .question}
+## Welche Therapieansätze sind denkbar?
+
+Stellt euch vor, ihr müssten ein Behandlungskonzept für Markus W. entwickeln:
+
+- Welche Therapieansätze oder Methoden kommen euch in den Sinn?
+- Warum könnten diese Ansätze wirksam sein?
+- Welche psychologischen Störungsmodelle oder theoretischen Annahmen über die Entstehung und Aufrechterhaltung von Sexualdelinquenz liegen diesen Methoden zugrunde?
+- Welche Überlegungen zur Veränderbarkeit (z. B. Wirkmechanismen, Ansatzpunkte) stecken hinter den jeweiligen Ansätzen?
+- Gibt es Faktoren, die eurer Meinung nach besonders beachtet werden sollten?
+
+:::
+
+```{r}
+countdown::countdown(
+  minutes = 1, seconds = 0,
+  font_size = "4em",
+  warn_when = 55,
+  color_text = "#CD853F",
+  color_running_background = "#002b36",
+  color_finished_background = "oldlace",
+  color_warning_background = "#cb4b16",
+  right = "25%",
+  bottom = "0%"
+  )
+```
+
+
+
+## Therapie – Übersicht
+
+@schmucker2023
+
+- Gesellschaftlich umstritten: Therapieangebote für Sexualstraftäter stoßen oft auf Ablehnung
+- Sexualdelinquenz = **soziales Störverhalten**, nicht zwingend psychische Störung
+- Ziel: **Resozialisierung** und **Rückfallvermeidung**, nicht „Heilung“
+- **Behandlungspflicht**: Therapie ist gesetzlich vorgeschrieben
+- **Settings**: Strafvollzug, Maßregelvollzug, ambulante Behandlung
+- **Therapieformen**:
+  - Früher: vor allem tiefenpsychologisch
+  - Heute: v. a. kognitiv-verhaltenstherapeutisch (KVT), teils systemisch
+- Fokus hier: KVT, da sie empirisch am besten belegt ist und andere Ansätze weniger wirksam oder schwer umsetzbar sind
+
+## KVT bei Sexualdelinquenz – Merkmale 
+
+::::: {.columns}
+::: {.column}
+
+@schmucker2023
+
+- Ziel: Kognitive Veränderung & Fertigkeitenaufbau
+- Fokus: Deliktsnahe Risikofaktoren
+- Inhalte: Tatspezifisch (immer), tatverbunden (bei Bedarf)
+
+:::
+::: {.column}
+
+```{r}
+cbt <- read.csv("data/cbt.csv")
+gt::gt(cbt) |>
+  gt::tab_header(
+    title = "Behandlungsinhalte der KVT bei Sexualdeliquenz"
+  ) |>
+  gt::tab_options(
+    #table.font.size = 20,
+    #table.width = gt::pct(80)
+  ) |>
+  gt::fmt_markdown() |>
+  gtExtras::gt_theme_nytimes()
+
+```
+
+@marshall2013
+
+:::
+:::: 
+
+# Von theoretischen Grundlagen zu praktischen Interventionen
+
+*Was wird in der KVT bei Sexualstraftätern konkret gemacht?*
+
+## KVT – Behandlungsinhalte 
+
+Nach @schmucker2023:
+
+- Veränderung devianter sexueller Präferenzen
+- Kognitive Restrukturierung
+- Förderung von Empathie
+- Arbeit mit Deliktszenarios
+
+## Veränderung devianter sexueller Präferenzen
+
+- Methoden: Expositionsverfahren, Fantasiekontrolle, Impulskontrolle
+- Ziel: Reduktion sexueller Erregung durch deviante Stimuli
+- Förderung alternativer, nicht-devianten Sexualverhaltens
+
+## Kognitive Restrukturierung
+
+- Arbeit an Rechtfertigungen („Täterlogik“)
+- Konfrontation mit Bagatellisierungen, Schuldabwehr
+- Entwicklung realistischer Risikoeinschätzung \& Verantwortungsübernahme
+
+## Förderung von Empathie
+
+- Perspektivübernahme: Opferperspektive erarbeiten
+- Förderung von Mitgefühl \& Schuldempfinden
+- Ziel: Hemmung weiterer Taten durch Empathie
+
+## Deliktszenario
+
+- Detaillierte Analyse der Tat(en)
+- Identifikation von Auslösern, Mustern, Risikosituationen
+- Entwicklung von Strategien zur Vermeidung erneuter Delinquenz
+
+## Übergang: Rückfallprävention als Therapieziel
+
+**Wie kann ein Rückfall verhindert werden?**
+Wir stellen das Relapse-Präventions-Modell vor und wenden es auf das Fallbeispiel an.
+
+## Relapse-Prävention – Modell
+
+:::: {.columns}
+::: {.column width="40%"}
+- Modell für die Suchttherapie entwickelt und dann für die Behandlung von Straftätern adaptiert
+- Ziel: **Rückfallvermeidung durch Risikoerkennung \& Selbstkontrolle**
+:::
+::: {.column width="60%"}
+![RP-Modell](img/relapse_prevention_model.png)
+
+:::
+::::
+
+## Therapeutische Methoden im RP-Modell
+
+- Identifikation individueller Risikosituationen
+- Entwicklung von Bewältigungsstrategien
+- Notfallpläne \& soziale Unterstützung
+- Training von Selbstkontrolle \& Problemlösefähigkeit
+
+## Fallbeispiel \& Relapse-Prävention
+
+**Gruppenarbeit:**
+Jede Gruppe bearbeitet eine Modellkomponente am Fallbeispiel (5 Min.)
+
+
+# Wie wirksam ist Therapie wirklich?
+
+*Was bringt die Behandlung?*
+
+## Evaluation der Wirksamkeit
+
+Schätzen lassen bei Wirksamkeit
+
+- KVT-Programme senken Rückfallraten signifikant
+- Sexualdelikte: Rückfallraten nach KVT ca. 6% (statt >10% ohne Behandlung)
+- Wichtig: Wirksamkeit abhängig von Setting, Motivation, Nachsorge
+- Grenzen: Nicht alle Täter profitieren gleichermaßen
+
+## Medikamentöse Behandlung – Überblick 
+
+- Indikation: v.a. bei starker sexueller Impulsivität, devianter Präferenz
+- Substanzen: Antiandrogene, LHRH-Analoga, SSRI
+- Ziel: Reduktion sexueller Impulse
+- Nebenwirkungen \& ethische Aspekte beachten
+
+## Abschlussdiskussion
+
+**Diskussionsfragen:**
+
+*Diskussion von Therapiemaßnahmen*
+
+- Welche gesellschaftlichen Herausforderungen bestehen bei der Therapie von Sexualstraftätern?
+- Wo liegen ethische Dilemmata?
+
+*Diskussion der Therapiedurchführung*
+
+- Persönliche Grenzen?
+- Sich vorstellen persönlich mit Tätern zu arbeiten?
+- Schwierigkeiten im Umgang und therapeutischer Beziehung mit Sexualstraftätern?
+
+
+## Abschließende Einordnung
+
+Disclaimer: Keine Bagatellisierung der Taten/Täter, trotzdem bedarf es einer Einordnung der Relevanz von Täterarbeit
+
+- ⁠Prävention $\rightarrow$ Täterarbeit ist wichtige „Opfer“-Arbeit [s.h. z.B. Berliner Projekt "kein Täter werden", @beier2018]
+- ⁠Nicht nur zum Schutz der Gesellschaft, sondern auch Eigenschutz des Täters aufgrund hohen Leidensdrucks
+- ⁠Täter trotz schwerwiegender einzelner Fehltritte als Menschen sehen und nicht nur ihre Tat
+
+# Vielen Dank für eure Aufmerksamkeit!
+
+## Referenzen
