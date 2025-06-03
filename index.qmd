@@ -1,6 +1,6 @@
 ---
 title: "Forensische Einblicke bei Sexualstraftätern"
-subtitle: Epidemiologie, Phänomenologie, Ätiologie und Intervention
+subtitle: Epidemiologie, Phänomenologie und Intervention
 author:   
   - Jan Luca Schnatz
   - Annika von Palubitzki
@@ -21,7 +21,7 @@ format:
     css: styles.css
     footer: "KliPPs7b"
     fig-align: center
-    theme: [default, theme.scss]
+    theme: [simple, theme.scss]
     smaller: false
     title-slide-style: pandoc
     title-slide-attributes:
@@ -31,6 +31,14 @@ filters:
   - reveal-header
   - timer
 ---
+
+```{scss}
+div {
+  &.callout {
+    font-size: 1.3rem !important;
+  }
+}
+```
 
 ```{r}
 #| echo: false
@@ -64,8 +72,8 @@ pacman::p_load(gt, gtExtras, countdown)
 
 ## Schuldfähigkeit – Arbeitsauftrag {.smaller}
 
-::: {.callout .question}
-## Aufgabestellung
+::: {.callout-note icon="false" appearance="default"}
+# Aufgabestellung
 Beurteilt in Kleingruppen die Schuldfähigkeit von Markus W. im Fallbeispiel.
 :::
 
@@ -84,7 +92,7 @@ Zentrale psychologische Begriffe:
 
 ## Schuldfähigkeit – Besprechung
 
-**Musterlösung:**
+Musterlösung: **Verminderte Schuldfähigkeit**
 
 - ⁠Tiefgreifende komplexe posttraumatische Belastungsstörung (PTBS) mit dissoziativen Episoden (schwere andere seelische Störung)
 - ⁠Deutlich ausgeprägte selbstunsichere und emotional instabile Persönlichkeitsstruktur
@@ -140,7 +148,7 @@ gt::gt(d) |>
 
 @jehle2020
 
-::: {.callout .question}
+::: {.callout-note icon="false" appearance="simple"}
 ## Rückfallrisiko bei Sexualstraftätern
 * *Wie hoch schätzt ihr das Rückfallrisiko bei Sexualstraftätern?*
 * *Gibt es Unterschiede je nach Tätertyp (z. B. pädosexuelle Täter vs. Taten gegen Erwachsene)?*
@@ -160,7 +168,7 @@ gt::gt(risk) |>
     title = "Rückfallrisiko nach Deliktart"
   ) |>
   gt::tab_options(
-    table.font.size = 20,
+    table.font.size = 30,
     table.width = gt::pct(80)
   ) |>
   gtExtras::gt_theme_nytimes()
@@ -176,11 +184,11 @@ gt::gt(risk) |>
 
 @rettenberger2023
 
-- Gesellschaftlicher Wandel (Bildung, Gesundheit)
-- Bessere Nachsorge \& Behandlung
+- Gesellschaftlicher Wandel (Bildung, Gesundheitversorgung, Armut)
+- Bessere Behandlung & Nachsorge 
 - Individuelle Faktoren (Selbstkontrolle, Alter)
 - Kriminalpolitik (Abschreckung)
-- Technologischer Wandel 
+- Technologischer Wandel $\rightarrow$ Nutzung Pornographischer Erzeugnisse
 
 # Von der Epidemiologie zu Erscheinungsformen und Tätertypen
 
@@ -188,23 +196,22 @@ gt::gt(risk) |>
 
 *Welche Formen sexualisierter Gewalt gibt es und wie lassen sich Täter typisieren?*
 
-
 ## Typologien sexualisierter Gewalt {.smaller}
 
 @rettenberger2023
 
-- Sexualisierte Gewalt zeigt sich in unterschiedlichen Erscheinungsformen.
-- Typologien helfen, Täter und Taten systematisch zu erfassen und besser zu verstehen.
+- Sexualisierte Gewalt zeigt sich in unterschiedlichen Erscheinungsformen $\rightarrow$ Phänomenologie
+- Typologien helfen, Täter und Taten systematisch zu erfassen und besser zu verstehen
 
 ![](img/typologie_sexualdeliquenz.png){width="80%"}
 
 # Von der Typologie zur Therapie
 
-**Wie werden Sexualstraftäter behandelt?**
+*Wie werden Sexualstraftäter behandelt?*
 
 ## Übung: Fallbezogene Überlegungen zu Therapiemöglichkeiten
 
-::: {.callout .question}
+::: {.callout-note icon="false" appearance="simple"}
 ## Welche Therapieansätze sind denkbar?
 
 Stellt euch vor, ihr müssten ein Behandlungskonzept für Markus W. entwickeln:
@@ -219,21 +226,20 @@ Stellt euch vor, ihr müssten ein Behandlungskonzept für Markus W. entwickeln:
 
 ```{r}
 countdown::countdown(
-  minutes = 1, seconds = 0,
-  font_size = "4em",
-  warn_when = 55,
+  minutes = 5, seconds = 0,
+  font_size = "1.5em",
+  warn_when = 60,
   color_text = "#CD853F",
   color_running_background = "#002b36",
-  color_finished_background = "oldlace",
+  color_finished_background = "lightgrey",
   color_warning_background = "#cb4b16",
-  right = "25%",
-  bottom = "0%"
+  right = 0,
+  bottom = 0,
+  play_sound = FALSE
   )
 ```
 
-
-
-## Therapie – Übersicht
+## Therapie – Übersicht {.smaller}
 
 @schmucker2023
 
@@ -296,27 +302,46 @@ Nach @schmucker2023:
 
 ## Veränderung devianter sexueller Präferenzen
 
-- Methoden: Expositionsverfahren, Fantasiekontrolle, Impulskontrolle
-- Ziel: Reduktion sexueller Erregung durch deviante Stimuli
-- Förderung alternativer, nicht-devianten Sexualverhaltens
+- **Ziel**
+  - Reduktion sexueller Erregung durch deviante Stimuli
+  - Förderung alternativer, nicht-devianter Sexualinteressen
+  
+- **Annahme**: Sexuelle Präferenzen entstehen durch frühe Lernerfahrungen (klassische Konditionierung)
+
+- **Methoden**
+  - *Systematische Desensibilisierung*: Schrittweise Konfrontation mit deviantem Material, gekoppelt mit neutralen oder negativen Reizen
+  - *Masturbatorische Rekonditionierun*: Umlernen von Erregungsmustern durch gezielte angemessene Fantasien oder Erzeugen von Unempfindlichkeit gegenüber deviantem Stimulus
+
+- Heute: In Deutschland seltener angewendet, in Nordamerika noch verbreitet; Wirksamkeit umstritten
 
 ## Kognitive Restrukturierung
 
-- Arbeit an Rechtfertigungen („Täterlogik“)
-- Konfrontation mit Bagatellisierungen, Schuldabwehr
-- Entwicklung realistischer Risikoeinschätzung \& Verantwortungsübernahme
+- Arbeit an Rechtfertigungen und kognitiven Verzerrungen (*„Täterlogik“*)
+- **Ziel**: Aufdecken und Veränderung von legitimierenden und verharmlosenden Denkmustern bezüglich devianter Handlungen
+- **Methoden**: Funktionsverdeutlichung der Verzerrungen, Korrekte Darstellung, Unterstützung bei Indentifikation von Verzerrungen, Konfrontation
+- Häufige Anwendung in **Gruppensettings**
 
 ## Förderung von Empathie
 
-- Perspektivübernahme: Opferperspektive erarbeiten
-- Förderung von Mitgefühl \& Schuldempfinden
-- Ziel: Hemmung weiterer Taten durch Empathie
+- In fast allen Programmen, aber als Therapieziel umstritten
+
+- **Defizite meist opferbezogen**, oft mit kognitiven Verzerrungen verknüpft
+
+- Positive Veränderung opferbezogener Empathie kann Rückfallrisiko senken
+
+- Sinnvoll, wenn **in breiten Behandlungsrahmen integriert**; isoliert oder bei sadistischen Tätern kontraindiziert
+
+- **Methoden**: Opferberichte, Tatrekonstruktion, Schreiben von Opferbriefen, Rollenspiele
 
 ## Deliktszenario
 
-- Detaillierte Analyse der Tat(en)
-- Identifikation von Auslösern, Mustern, Risikosituationen
-- Entwicklung von Strategien zur Vermeidung erneuter Delinquenz
+- **Ziel**: Tat als Folge von Entscheidungen, Gefühlen, Fantasien und vorausgehenden Ereignissen verstehen (kein singuläres Ereignis)
+
+- Problem- und Verhaltensanalyse zur Identifikation von Ansatzpunkten für Therapie
+
+- Vorteil: Therapie bleibt eng am Delikt orientiert
+
+- Rekonstruktion meist anhand theoretischer Modelle (z. B. Relapse-Prevention-Modell)
 
 ## Übergang: Rückfallprävention als Therapieziel
 
@@ -345,15 +370,66 @@ Wir stellen das Relapse-Präventions-Modell vor und wenden es auf das Fallbeispi
 
 ## Fallbeispiel \& Relapse-Prävention
 
-**Gruppenarbeit:**
-Jede Gruppe bearbeitet eine Modellkomponente am Fallbeispiel (5 Min.)
+:::: {.columns}
 
+::: {.column width="50%"}
+
+::: {.callout-note appearance="default"}
+# Gruppenarbeit
+
+1. Zuordnung zu Modellphasen:
+   - Ordnet konkrete Situationen aus dem Fallbeispiel den verschiedenen Phasen des Relapse-Prevention-Modells zu.
+   - Falls ihr für bestimmte Phasen keine passenden Situationen findet, entwickelt eigene plausible Szenarien.
+2. Therapeutische Interventionen:
+   - Überlegt, mit welchen therapeutischen Maßnahmen (basierend auf euren Ideen und den bisherigen Seminarinhalten) man jeweils in den einzelnen Modellphasen ansetzen könnte.
+   - Begründet kurz, warum diese Maßnahmen in der jeweiligen Phase sinnvoll wären.
+
+:::
+
+```{r}
+countdown::countdown(
+  minutes = 5, seconds = 0,
+  font_size = "1.5em",
+  warn_when = 60,
+  color_text = "#CD853F",
+  color_running_background = "#002b36",
+  color_finished_background = "lightgrey",
+  color_warning_background = "#cb4b16",
+  right = 0,
+  bottom = 0,
+  play_sound = FALSE
+  )
+```
+
+:::
+
+::: {.column width="50%"}
+
+![RP-Modell](img/relapse_prevention_model.png){width="30%"}
+
+
+:::
+
+::::
+
+
+
+
+
+
+Wie lange? 10 Minuten
 
 # Wie wirksam ist Therapie wirklich?
 
 *Was bringt die Behandlung?*
 
+
 ## Evaluation der Wirksamkeit
+
+::: {.callout-note icon="false" appearance="simple"}
+## Was denkt ihr?
+Wie stark senken KVT-Programme die Rückfallraten von Sexualstraftätern?
+:::
 
 Schätzen lassen bei Wirksamkeit
 
@@ -362,27 +438,9 @@ Schätzen lassen bei Wirksamkeit
 - Wichtig: Wirksamkeit abhängig von Setting, Motivation, Nachsorge
 - Grenzen: Nicht alle Täter profitieren gleichermaßen
 
-## Medikamentöse Behandlung – Überblick 
+# Diskussion
 
-- Indikation: v.a. bei starker sexueller Impulsivität, devianter Präferenz
-- Substanzen: Antiandrogene, LHRH-Analoga, SSRI
-- Ziel: Reduktion sexueller Impulse
-- Nebenwirkungen \& ethische Aspekte beachten
-
-## Abschlussdiskussion
-
-**Diskussionsfragen:**
-
-*Diskussion von Therapiemaßnahmen*
-
-- Welche gesellschaftlichen Herausforderungen bestehen bei der Therapie von Sexualstraftätern?
-- Wo liegen ethische Dilemmata?
-
-*Diskussion der Therapiedurchführung*
-
-- Persönliche Grenzen?
-- Sich vorstellen persönlich mit Tätern zu arbeiten?
-- Schwierigkeiten im Umgang und therapeutischer Beziehung mit Sexualstraftätern?
+*Was denkt ihr jetzt?*
 
 
 ## Abschließende Einordnung
