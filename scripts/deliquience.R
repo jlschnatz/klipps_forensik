@@ -1,5 +1,5 @@
 pacman::p_load(tidyverse, readxl, sysfonts, showtext, ggh4x, scales)
-font_add_google("Montserrat", "font")
+font_add_google("Inter", "font")
 showtext_auto()
 showtext_opts(dpi = 400)
 
@@ -36,7 +36,7 @@ d |>
  mutate(var = factor(var, levels = c("n_total", "pct_total", "pct_solved", "pct_men"), labels = c("Anzahl erfasste Fälle", "Anteil an Gesamtfallzahl", "Aufklärungsquote", "Anteil männlicher Täter"))) |>
  ggplot(aes(x = year, y = value)) +
  facet_wrap(~var, scales = "free", ncol = 2) +
- geom_step(linewidth = 0.7, color = "grey20") +
+ geom_step(linewidth = 1, color = "#01364C") +
  ggh4x::facetted_pos_scales(
     y = list(
       "Anzahl erfasste Fälle" = scale_y_continuous(limits = c(0, 150000), breaks = breaks_pretty(n = 8),labels = label_number(scale_cut = cut_short_scale()), expand = expansion()),
@@ -47,11 +47,20 @@ d |>
  ) +
  scale_x_continuous(
    name = "Jahr", 
-   breaks = seq(2015, 2024, 1)
+   breaks = seq(2015, 2024, 2)
    ) +
  ylab(NULL) +
- sjPlot::theme_sjplot() +
- theme(text = element_text(family = "font", size = 11)) -> p
+ ggdist::theme_ggdist() +
+ theme(
+  text = element_text(family = "font", size = 12),
+  panel.grid.minor = element_line(color = "grey90", linewidth = 0.25,),
+  strip.text = element_text(size = 13, face = "bold", margin = margin(b = 15, t = 15)),
+  strip.background = element_rect(fill = "grey95", color = "grey80"),
+  strip.placement = "outside",
+  strip.clip = "off",
+  panel.spacing.x = unit(1, "cm"),
+  panel.spacing.y = unit(1, "cm")
+  ) -> p
 
 ggsave("img/prevalence_deliquence.png", plot = p, width = 10, height = 10, dpi = 300, bg = "white")
 
